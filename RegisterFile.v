@@ -23,9 +23,9 @@
 module RegisterFile(
     input clk,
     input w_en_rf,
-    input [31:0] rs1,
-    input [31:0] rs2,
-    input [31:0] rd,
+    input [4:0] rs1,
+    input [4:0] rs2,
+    input [4:0] rd,
     input [31:0] wd,
     output reg [31:0] r1,
     output reg [31:0] r2
