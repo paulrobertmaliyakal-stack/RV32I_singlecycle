@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 23.06.2026 21:20:28
+// Create Date: 24.06.2026 10:58:23
 // Design Name: 
-// Module Name: InstructionMemory
+// Module Name: extend_2
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,14 +20,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module InstructionMemory(
-    input [31:0] PC_IN,
-    output reg  [31:0] INSTR_OUT,
-    input CLK
+module extend_2(
+    input [31:0] in,
+    input [2:0] cont,
+    output reg [31:0] out
     );
-    reg [7:0] Instr_Mem [255:0];
     always @(*)
     begin
-        INSTR_OUT={Instr_Mem[PC_IN+3],Instr_Mem[PC_IN+2],Instr_Mem[PC_IN+1],Instr_Mem[PC_IN]};
+        case(cont)
+        0:out=in;
+        1:out={{24{in[7]}},in[7:0]};
+        2:out={{16{in[15]}},in[15:0]};
+        3:out={24'b0,in[7:0]};
+        4:out={16'b0,in[15:0]};
+        endcase
     end
 endmodule

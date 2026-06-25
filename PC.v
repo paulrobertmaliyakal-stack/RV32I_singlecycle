@@ -22,7 +22,10 @@
 
 module PC(
     input [31:0] ADDR_IN,
-    output [31:0] ADDR_OUT,
+    output reg [31:0] ADDR_OUT,
     input CLK
     );
+    always @(posedge CLK) begin
+        ADDR_OUT<=ADDR_IN;
+    end
 endmodule

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 23.06.2026 21:20:28
+// Create Date: 24.06.2026 21:05:26
 // Design Name: 
-// Module Name: InstructionMemory
+// Module Name: top_module
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,14 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module InstructionMemory(
-    input [31:0] PC_IN,
-    output reg  [31:0] INSTR_OUT,
-    input CLK
-    );
-    reg [7:0] Instr_Mem [255:0];
-    always @(*)
-    begin
-        INSTR_OUT={Instr_Mem[PC_IN+3],Instr_Mem[PC_IN+2],Instr_Mem[PC_IN+1],Instr_Mem[PC_IN]};
-    end
+module top_module(
+input clk
+    );  
 endmodule

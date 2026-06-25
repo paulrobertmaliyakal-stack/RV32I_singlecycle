@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 23.06.2026 21:20:28
+// Create Date: 24.06.2026 10:58:23
 // Design Name: 
-// Module Name: InstructionMemory
+// Module Name: PC_IMM
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,14 +20,13 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module InstructionMemory(
-    input [31:0] PC_IN,
-    output reg  [31:0] INSTR_OUT,
-    input CLK
+module PC_IMM(
+    input [31:0] pc,
+    input [31:0] imm,
+    output reg [31:0] out
     );
-    reg [7:0] Instr_Mem [255:0];
-    always @(*)
+    always@(*)
     begin
-        INSTR_OUT={Instr_Mem[PC_IN+3],Instr_Mem[PC_IN+2],Instr_Mem[PC_IN+1],Instr_Mem[PC_IN]};
+        out=$signed(pc)+$signed(imm);
     end
 endmodule
