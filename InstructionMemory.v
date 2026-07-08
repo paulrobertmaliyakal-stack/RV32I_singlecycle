@@ -32,6 +32,10 @@ module InstructionMemory(
     input CLK
     );
     reg [7:0] Instr_Mem [255:0];
+    initial begin 
+    $readmemh("InstrMem_Data.hex",Instr_Mem);
+    $display("mem[0] = %h",Instr_Mem[0]);
+    end
     always @(*)
     begin
     opcode=Instr_Mem[PC_IN][6:0];

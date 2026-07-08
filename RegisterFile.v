@@ -21,6 +21,7 @@
 
 
 module RegisterFile(
+    input rst,
     input clk,
     input w_en_rf,
     input [4:0] rs1,
@@ -38,9 +39,16 @@ module RegisterFile(
     end
     always@(posedge clk) 
     begin
+        if(rst==1)begin
+            for(integer i=0;i<32;i=i+1) begin
+            registers[i]=0;
+            end
+        end
+        else begin
         if(w_en_rf==1'b1) 
         begin
             registers[rd]<=wd;
+        end
         end
     end
 endmodule

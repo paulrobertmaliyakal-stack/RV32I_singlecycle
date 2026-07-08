@@ -21,11 +21,15 @@
 
 
 module PC(
+    input rst,
     input [31:0] ADDR_IN,
     output reg [31:0] ADDR_OUT,
-    input CLK
+    input clk
     );
-    always @(posedge CLK) begin
-        ADDR_OUT<=ADDR_IN;
+    always @(posedge clk) begin 
+        if(rst==1)begin
+            ADDR_OUT<=32'b0;
+        end
+        else ADDR_OUT<=ADDR_IN;
     end
 endmodule

@@ -80,7 +80,8 @@ module controlunit(
             w_en_dm=0;
             alu_dm=0;
             alu_pc_4=0;
-            pcmux_cont=0;  
+            pcmux_cont=0; 
+            extend_cont_1=0; 
             case(funct3)
             0:
             begin
@@ -137,7 +138,8 @@ module controlunit(
             w_en_dm=0;
             alu_dm=1;   
             alu_pc_4=0;
-            pcmux_cont=0;  
+            pcmux_cont=0; 
+            extend_cont_1=0; 
             case(funct3)
             0:
             begin
@@ -179,6 +181,7 @@ module controlunit(
             // alu_dm=0;
             // alu_pc_4=0;
             pcmux_cont=0;
+            extend_cont_1=1;
             case(funct3)
             0:
             begin
@@ -205,6 +208,7 @@ module controlunit(
             w_en_rf=0;
             r2_im=0;
             w_en_dm=0;
+            extend_cont_1=2;
             // alu_dm=0;
             // alu_pc_4=0;
             pcmux_cont=2;
