@@ -33,18 +33,18 @@ module InstructionMemory(
     );
     reg [7:0] Instr_Mem [255:0];
     initial begin 
-    $readmemh("InstrMem_Data.hex",Instr_Mem);
+    $readmemh("instructions.hex",Instr_Mem);
     $display("mem[0] = %h",Instr_Mem[0]);
     end
     always @(*)
     begin
-    opcode=Instr_Mem[PC_IN][6:0];
-    immediate={Instr_Mem[PC_IN+3],Instr_Mem[PC_IN+2],Instr_Mem[PC_IN+1],Instr_Mem[PC_IN][7]};
-    funct3=Instr_Mem[PC_IN+1][6:4];
-    funct7=Instr_Mem[PC_IN+3][7:1];
-    rd={Instr_Mem[PC_IN+1][3:0],Instr_Mem[PC_IN][7]};
-    rs1={Instr_Mem[PC_IN+2][3:0],Instr_Mem[PC_IN+1][7]};
-    rs2={Instr_Mem[PC_IN+3][0],Instr_Mem[PC_IN+2][7:4]};
+    opcode=Instr_Mem[PC_IN+3][6:0];
+    immediate={Instr_Mem[PC_IN],Instr_Mem[PC_IN+1],Instr_Mem[PC_IN+2],Instr_Mem[PC_IN+3][7]};
+    funct3=Instr_Mem[PC_IN+2][6:4];
+    funct7=Instr_Mem[PC_IN][7:1];
+    rd={Instr_Mem[PC_IN+2][3:0],Instr_Mem[PC_IN+3][7]};
+    rs1={Instr_Mem[PC_IN+1][3:0],Instr_Mem[PC_IN+2][7]};
+    rs2={Instr_Mem[PC_IN][0],Instr_Mem[PC_IN+1][7:4]};
         //INSTR_OUT={Instr_Mem[PC_IN+3],Instr_Mem[PC_IN+2],Instr_Mem[PC_IN+1],Instr_Mem[PC_IN]};
     end
 endmodule

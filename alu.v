@@ -38,8 +38,14 @@ module alu(
         5:out=i0<<i1;
         6:out=i0>>i1;
         7:out=i0>>>i1;
-        8:flag=($signed(i0)<$signed(i1))?1'b1:1'b0;
-        9:flag=(i0<i1)?1'b1:1'b0;
+        8:begin
+        out=($signed(i0)<$signed(i1))?32'b1:32'b0;
+        flag=($signed(i0)<$signed(i1))?1'b1:1'b0;
+        end
+        9:begin
+        out=(i0<i1)?32'b1:32'b0;
+        flag=(i0<i1)?1'b1:1'b0;
+        end
         10:flag=(i0-i1==0)?1'b1:1'b0;
         11:flag=(i0!=i1)?1'b1:1'b0;
         12:flag=($signed(i0)>=$signed(i1))?1'b1:1'b0;

@@ -2,9 +2,9 @@
 
 module top_module (
     input clk,
-    input rst
+    input rst,
+    output [31:0] result
 );
-
   wire [2:0]  InstructionMemory_0_funct3;
   wire [6:0]  InstructionMemory_0_funct7;
   wire [24:0] InstructionMemory_0_immediate;
@@ -37,7 +37,7 @@ module top_module (
   wire [31:0] mux_2_1_2_out;
   wire [31:0] mux_4_1_0_out;
   wire [31:0] mux_4_1_1_out;
-
+  assign result=PC_0_ADDR_OUT;
   InstructionMemory InstructionMemory_0
        (.CLK      (clk),
         .PC_IN    (PC_0_ADDR_OUT),

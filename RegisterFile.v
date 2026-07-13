@@ -31,6 +31,7 @@ module RegisterFile(
     output reg [31:0] r1,
     output reg [31:0] r2
     );
+    integer i;
     reg [31:0] registers [31:0];
     always@(*) 
     begin
@@ -40,7 +41,7 @@ module RegisterFile(
     always@(posedge clk) 
     begin
         if(rst==1)begin
-            for(integer i=0;i<32;i=i+1) begin
+            for(i=0;i<32;i=i+1) begin
             registers[i]=0;
             end
         end
