@@ -37,7 +37,9 @@ module alu(
         4:out=i0&i1;
         5:out=i0<<i1;
         6:out=i0>>i1;
-        7:out=i0>>>i1;
+        7:begin
+        out=$signed(i0)>>>i1[4:0];
+        end
         8:begin
         out=($signed(i0)<$signed(i1))?32'b1:32'b0;
         flag=($signed(i0)<$signed(i1))?1'b1:1'b0;

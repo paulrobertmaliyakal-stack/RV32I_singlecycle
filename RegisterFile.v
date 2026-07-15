@@ -46,7 +46,7 @@ module RegisterFile(
             end
         end
         else begin
-        if(w_en_rf==1'b1) 
+        if(w_en_rf==1'b1 && rd!=0) 
         begin
             registers[rd]<=wd;
         end
