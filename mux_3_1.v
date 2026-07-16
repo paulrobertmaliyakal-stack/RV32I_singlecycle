@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 23.06.2026 21:35:00
+// Create Date: 15.07.2026 22:42:53
 // Design Name: 
-// Module Name: mux_4_1
+// Module Name: mux_3_1
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,22 +20,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module mux_4_1(
-    input [31:0] i0,
-    input [31:0] i1,
-    input [31:0] i2,
-    input [31:0] i3,
-    input [1:0] sel,
-    output reg [31:0] out
+module mux_3_1(
+input [31:0] i0,
+input [31:0] i1,
+input [31:0] i2,
+input [1:0] sel,
+output reg [31:0] out
     );
-    always@(*) 
-    begin
-        case(sel)
-        2'b0:out=i0;
-        2'b1:out=i1;
-        2'b10:out=i2;
-        2'b11:out=i3;
-        default:out=0;
-        endcase
+    always@(*) begin  
+    case(sel)
+    0:out=i0;
+    1:out=i1;
+    2:out=i2;
+    default :out =i0;
+    endcase
     end
 endmodule

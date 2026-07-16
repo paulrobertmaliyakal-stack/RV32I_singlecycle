@@ -36,6 +36,7 @@ module controlunit(
     output reg [1:0] pcmux_cont
     );
     always @(*)
+    
     begin
         case(opcode)
         7'b0110011:

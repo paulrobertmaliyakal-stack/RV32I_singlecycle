@@ -38,7 +38,7 @@ module RegisterFile(
         r1=registers[rs1];
         r2=registers[rs2];
     end
-    always@(posedge clk) 
+    always@(negedge clk) 
     begin
         if(rst==1)begin
             for(i=0;i<32;i=i+1) begin
