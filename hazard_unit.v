@@ -33,6 +33,7 @@ input [4:0] rde,
 input alu_dm_e,
 input w_en_rf_e,
 input [1:0] pc_mux_cont,
+input flag_e,
 
 output reg [1:0] r1_mux,
 output reg [1:0] r2_mux,
@@ -66,7 +67,7 @@ output reg flush_d
     en_d=0;
     end
     
-    if(pc_mux_cont!=0) begin
+    if((pc_mux_cont==2 && flag_e==1) || (pc_mux_cont==1) || (pc_mux_cont==2)) begin
     flush_d<=1;
     flush_e<=1;
     end
